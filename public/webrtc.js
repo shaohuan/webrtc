@@ -10,11 +10,11 @@ if (hasUserMedia()) {
       || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 		
    //get both video and audio streams from user's camera 
-   navigator.getUserMedia({ video: true, audio: true }, function (stream) { 
+   navigator.getUserMedia({ video: true, audio: true }, function (mediaStream) { 
       var video = document.querySelector('video'); 
 		
       //insert stream into the video tag 
-      video.src = window.URL.createObjectURL(stream); 
+      video.srcObject = mediaStream;
    }, function (err) {}); 
 	
 }else {
